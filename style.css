@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: monospace;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50vw;
+  height: fit-content;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+ul li {
+  padding: 1rem;
+}
+
+.result {
+  /* position: relative;
+  top: 85px;
+  overflow: hidden;
+  height: 400px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100vh;
+  padding: 7rem;
+
+}
+
+
+img {
+  width: 100%;
+  height: 100%;
+  margin-top: 4rem;
+}
+
+.login-component {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-component h2 {
+  font-size: 3rem;
+}
+
+.login-component form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  width: 60vw;
+  height: 4rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+form input:nth-child(1) {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+form input:nth-child(2) {
+  margin-bottom: 2rem;
+}
+
+button {
+  height: 40px;
+}
+
+.hide-component {
+  display: none;
+}
+
+img {
+  opacity: 0.09;
+}

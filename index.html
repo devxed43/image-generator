@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="hide-component">
+      <nav>
+        <ul>
+          <li><a href="#">logo</a></li>
+        </ul>
+      </nav>
+      <nav>
+        <ul>
+          <li><a href="https://waifu.pics/docs" target="_blank">api</a></li>
+          <li><a href="#" class="sign-in">login</a></li>
+          <li><a href="#" class="sign-out">sign out</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="login-component">
+      <h2>Sign In</h2>
+      <form>
+        <input type="text" name="username" placeholder="username" required />
+        <input type="password" name="password" placeholder="password" required />
+        <button type="submit" class="sign-in">Sign In</button>
+      </form>
+    </div>
+
+    <div class="result hide-component">
+      <h1>Welcome <span class="users-name"></span>!</h1>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
