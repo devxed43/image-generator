@@ -43,7 +43,7 @@ function signIn() {
   }
 }
 
-const apiUrl = "https://api.waifu.pics/sfw/waifu";
+const apiUrl = "https://api.waifu.pics/nsfw/waifu";
 
 function displayData(data) {
   result.textContent = "";
