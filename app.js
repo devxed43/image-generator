@@ -1,86 +1,114 @@
+// HTML Selectors, elems
 const result = document.querySelector(".result");
-const h1 = document.querySelector("h1");
-const header = document.querySelector("header");
-const auth = document.querySelector(".login-component");
-const signInBtn = document.querySelector(".sign-in");
-const form = document.querySelector("form");
-const userSpan = document.querySelector(".users-name");
 
-const db = [
-  { username: "ed", password: "123" },
-  { username: "teb", password: "321" },
-];
+const waifuBtn = document.querySelector(".loadWaifu");
+const nekoBtn = document.querySelector(".loadNeko");
+const blowJobBtn = document.querySelector(".loadBlowjob");
+const trapBtn = document.querySelector(".loadTrap");
 
-let isSignedIn = false; // default to false
+const placeholderImg = document.querySelector(".placeholderImg");
 
-function isUserValid(username, password) {
-  for (let i = 0; i < db.length; i++) {
-    if (db[i].username === username && db[i].password === password) {
-      return true;
-    }
-  }
-  return false;
-}
+// api url - feed to fetch functions
+const waifuUrl = "https://api.waifu.pics/nsfw/waifu";
+const nekoUrl = "https://api.waifu.pics/nsfw/neko";
+const blowUrl = "https://api.waifu.pics/nsfw/blowjob";
+const trapUrl = "https://api.waifu.pics/nsfw/trap";
 
-function signIn() {
-  const username = form.elements["username"].value.trim();
-  const password = form.elements["password"].value.trim();
+// display functions - ingest api, display content structure
+function displayWaifu(data) {
+  result.innerHTML = "";
 
-  if (isUserValid(username, password)) {
-    isSignedIn = true;
-
-    auth.classList.add("hide-component");
-    header.classList.remove("hide-component");
-    result.classList.remove("hide-component");
-
-    h1.textContent = `Welcome ${username}!`;
-    userSpan.textContent = username;
-
-    fetchData(); // only fetch after successful sign-in
-  } else {
-    isSignedIn = false;
-    alert("Invalid username or password");
-  }
-}
-
-const apiUrl = "https://api.waifu.pics/nsfw/waifu";
-
-function displayData(data) {
-  result.textContent = "";
   const img = document.createElement("img");
   img.src = data.url;
   img.alt = "waifu";
-  img.title = "waifu";
-
+  img.style.width = "100%";
+  img.style.height = "100%";
+  img.setAttribute("class", "apiImg");
   result.appendChild(img);
 }
 
-async function fetchData() {
+function displayNeko(data) {
+  result.innerHTML = "";
+
+  const img = document.createElement("img");
+  img.src = data.url;
+  img.alt = "neko";
+  img.style.width = "100%";
+  img.style.height = "100%";
+  img.setAttribute("class", "apiImg");
+  result.appendChild(img);
+}
+
+function displayBlowjob(data) {
+  result.innerHTML = "";
+
+  const img = document.createElement("img");
+  img.src = data.url;
+  img.alt = "blowjob";
+  img.style.width = "100%";
+  img.style.height = "100%";
+  img.setAttribute("class", "apiImg");
+  result.appendChild(img);
+}
+
+function displayTrap(data) {
+  result.innerHTML = "";
+
+  const img = document.createElement("img");
+  img.src = data.url;
+  img.alt = "trap";
+  img.style.width = "100%";
+  img.style.height = "100%";
+  img.setAttribute("class", "apiImg");
+  result.appendChild(img);
+}
+
+// fetch functions - retrieve api data, feed to display functions
+async function fetchWaifu() {
   try {
-    const res = await fetch(apiUrl);
+    const res = await fetch(waifuUrl);
     const data = await res.json();
-    displayData(data);
+    displayWaifu(data);
   } catch (error) {
-    console.log("error getting resources", error);
+    console.log(error, "trouble loading resource");
+  }
+}
+async function fetchNeko() {
+  try {
+    const res = await fetch(nekoUrl);
+    const data = await res.json();
+    displayNeko(data);
+  } catch (error) {
+    console.log(error, "trouble loading neko");
+  }
+}
+async function fetchBlowjob() {
+  try {
+    const res = await fetch(blowUrl);
+    const data = await res.json();
+    displayBlowjob(data);
+  } catch (error) {
+    console.log(error, "trouble loading blowjob");
+  }
+}
+async function fetchTrap() {
+  try {
+    const res = await fetch(trapUrl);
+    const data = await res.json();
+    displayTrap(data);
+  } catch (error) {
+    console.log(error, "trouble loading trap");
   }
 }
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  signIn();
-});
-
-signInBtn.addEventListener("click", function (e) {
-  e.preventDefault(); // in case it's a button in a form
-  signIn();
-});
-
 window.addEventListener("load", () => {
-  // On initial load, show only login if not signed in
-  if (!isSignedIn) {
-    result.classList.add("hide-component");
-    header.classList.add("hide-component");
-    auth.classList.remove("hide-component");
-  }
+  placeholderImg.classList.toggle("show");
+  placeholderImg.style.width = "200px"
+  placeholderImg.style.height = "200px"
 });
-result.addEventListener("click", fetchData);
+
+// event listeners - btns, on loads, etc
+waifuBtn.addEventListener("click", fetchWaifu);
+nekoBtn.addEventListener("click", fetchNeko);
+blowJobBtn.addEventListener("click", fetchBlowjob);
+trapBtn.addEventListener("click", fetchTrap);

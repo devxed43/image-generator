@@ -7,32 +7,39 @@
     <title>Document</title>
   </head>
   <body>
-    <header class="hide-component">
-      <nav>
-        <ul>
-          <li><a href="#">logo</a></li>
-        </ul>
-      </nav>
-      <nav>
-        <ul>
-          <li><a href="https://waifu.pics/docs" target="_blank">api</a></li>
-          <li><a href="#" class="sign-in">login</a></li>
-          <li><a href="#" class="sign-out">sign out</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <div class="login-component">
-      <h2>Sign In</h2>
-      <form>
-        <input type="text" name="username" placeholder="username" required />
-        <input type="password" name="password" placeholder="password" required />
-        <button type="submit" class="sign-in">Sign In</button>
-      </form>
-    </div>
-
-    <div class="result hide-component">
-      <h1>Welcome <span class="users-name"></span>!</h1>
+    <div class="container">
+      <header>
+        <h1>anime img gen</h1>
+        <nav>
+          <ul class="main-menu">
+            <li class="menu-item"><a class="menu-link" href="">home</a></li>
+            <li class="menu-item"><a class="menu-link" href="">about</a></li>
+            <li class="menu-item"><a class="menu-link" href="">api</a></li>
+            <li class="menu-item"><a class="menu-link" href="">profile</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="main-grid">
+        <aside>
+          <nav>
+            <ul>
+              <li><a href="#" class="loadWaifu">waifu</a></li>
+              <li><a href="#" class="loadNeko">neko</a></li>
+              <li><a href="#" class="loadBlowjob">blowjob</a></li>
+              <li><a href="#" class="loadTrap">trap</a></li>
+            </ul>
+          </nav>
+        </aside>
+        <main>
+          <div class="result">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPf3px7E1t9tmr9asyv2a2Uk1kyPJg8PzKJQ&s"
+              alt=""
+              class="placeholderImg"
+            />
+          </div>
+        </main>
+      </div>
     </div>
 
     <script src="app.js"></script>
